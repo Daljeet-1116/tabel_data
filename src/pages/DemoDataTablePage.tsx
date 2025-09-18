@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DataTable } from '../components/DataTable';
+import type { Column } from '../components/DataTable/DataTable.types';
 
 interface User {
   id: number;
@@ -14,7 +15,7 @@ const sampleData: User[] = [
   { id: 3, name: 'Carol', age: 29, email: 'carol@example.com' },
 ];
 
-const columns = [
+const columns: Column<User>[] = [
   { key: 'name', title: 'Name', dataIndex: 'name', sortable: true },
   { key: 'age', title: 'Age', dataIndex: 'age', sortable: true },
   { key: 'email', title: 'Email', dataIndex: 'email' },
@@ -22,7 +23,7 @@ const columns = [
 
 export const DemoDataTablePage: React.FC = () => {
   const [selectedRows, setSelectedRows] = useState<User[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false); // removed setLoading since unused
 
   const handleRowSelect = (rows: User[]) => {
     setSelectedRows(rows);

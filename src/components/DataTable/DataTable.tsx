@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import  { useState, useMemo } from 'react';
 import type { DataTableProps, Column } from './DataTable.types';
 
 export function DataTable<T extends { [key: string]: any }>({
